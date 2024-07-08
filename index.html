@@ -124,7 +124,7 @@
 <body>
 
 <div id="background-animation"></div>
-<div id="player-name"></div>
+<div id="player-name">de você</div>
 <div id="board"></div>
 <button id="history-btn" onclick="toggleHistory()">Histórico</button>
 <div id="history-container">
@@ -133,12 +133,11 @@
 </div>
 
 <script>
-  
-
   const board = document.getElementById('board');
   const historyBtn = document.getElementById('history-btn');
   const historyContainer = document.getElementById('history-container');
   const historyContent = document.getElementById('history');
+  const playerName = 'de você';
   let currentPlayer = 'X';
   let botName = 'Bot';
   let gameHistory = [];
@@ -256,26 +255,6 @@
       }
     }
     makeBotMove();
-  }
-
-  function toggleHistory() {
-    if (historyContainer.style.display === 'none') {
-      historyContainer.style.display = 'block';
-      historyBtn.textContent = 'Esconder Histórico';
-      showHistory();
-    } else {
-      historyContainer.style.display = 'none';
-      historyBtn.textContent = 'Histórico';
-    }
-  }
-
-  function showHistory() {
-    historyContent.innerHTML = '';
-    gameHistory.forEach(result => {
-      const resultElement = document.createElement('p');
-      resultElement.innerHTML = result;
-      historyContent.appendChild(resultElement);
-    });
   }
 
   createBoard();
